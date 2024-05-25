@@ -1,11 +1,11 @@
 {
   "dependencies": {
+    "@parcel/watcher": "^2.4.1",
     "parcel": "^2.12.0"
   },
   "name": "bookish",
   "version": "1.0.0",
   "description": "N/A",
-  "devDependencies": {},
   "scripts": {
     "start": "parcel bookish.html",
     "build": "parcel build bookish.html --dist-dir ./dist"

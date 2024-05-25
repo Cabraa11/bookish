@@ -1,0 +1,484 @@
+.container {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr 600px auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "search"
+    "content"
+    "bottom";
+}
+.goHomeDiv {
+  grid-area: bottom;
+  width: fit-content;
+  position: relative;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.goHomeBtn {
+  background-color: transparent;
+  border: 0px solid transparent;
+}
+.goHomeBtnIcon {
+  block-size: 50px;
+}
+.searchBooksForm {
+  grid-area: search;
+  position: relative;
+  align-items: center;
+  top: 300px; /* get rid of this when the submit search is made*/
+  width: fit-content;
+  left: 50%;
+  margin-top: 20px;
+  transform: translateX(-50%);
+  grid-area: search;
+}
+.inputSearch {
+  width: 200px;
+  height: 44px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  text-align: center;
+  font-size: 20px;
+  background-color: white;
+  border: 0px solid black;
+}
+
+.searchBtn {
+  width: 90px;
+  height: 44px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-size: 20px;
+  background-color: white;
+  position: relative;
+  top: 16px;
+  border: 0px solid black;
+}
+
+.searchBtnIcon {
+  background-color: transparent;
+  width: 90px;
+  height: 44px;
+}
+.logoImg {
+  grid-area: header;
+  block-size: 70px;
+  position: relative;
+  left: 50%;
+  top: 350px; /* change this to 50% when submit search is made*/
+  transform: translate(-50%, -50%);
+}
+.errorMessage_inputSearch {
+  color: aliceblue;
+  grid-area: search;
+  position: relative;
+  text-align: center;
+  top: 0px;
+  background-color: transparent;
+  font-size: 30px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bookSearchResults {
+  grid-area: content;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  height: auto;
+  overflow: scroll;
+  border: 4px solid rgb(0, 0, 0);
+  margin-top: 10px;
+}
+
+.bookPreview {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  border: 2.5px solid rgb(255, 187, 0);
+  width: auto;
+  margin: 7px;
+  height: 134px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: minmax(0.7fr, 1fr) 1fr;
+  grid-template-columns: 1fr 1.5fr 1.5fr;
+  grid-template-areas:
+    "bookPreviewImg bookPreviewTitle bookPreviewTitle"
+    "bookPreviewImg bookPreviewPages bookPreviewRating";
+}
+.bookPreview:hover {
+  position: relative;
+  background-color: rgb(48, 48, 48);
+  border: 2.5px solid rgb(255, 187, 0);
+  width: auto;
+  margin: 7px;
+  height: 134px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: minmax(0.7fr, 1fr) 1fr;
+  grid-template-columns: 1fr 1.5fr 1.5fr;
+  grid-template-areas:
+    "bookPreviewImg bookPreviewTitle bookPreviewTitle"
+    "bookPreviewImg bookPreviewPages bookPreviewRating";
+}
+.previewImgDiv {
+  max-width: auto;
+  max-height: auto;
+  overflow: hidden;
+  background-color: transparent;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-area: bookPreviewImg;
+  border-radius: 20px;
+}
+.previewImgDiv:hover {
+  background-color: transparent;
+  max-width: auto;
+  max-height: auto;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-area: bookPreviewImg;
+  border-radius: 20px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+.bookPreview__link {
+  text-decoration: none;
+}
+.bookPreviewImg {
+  grid-area: bookPreviewImg;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  block-size: 110px;
+}
+.bookPreviewTitle {
+  font-size: 100%;
+  grid-area: bookPreviewTitle;
+  text-align: center;
+  max-width: 100%; /* Adjust the maximum width as needed */
+  max-height: 35px; /* Adjust the maximum height as needed */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  white-space: normal;
+  margin: auto;
+  position: relative;
+  justify-content: center;
+  color: aliceblue;
+  background-color: transparent;
+}
+.bookPreviewPages {
+  grid-area: bookPreviewPages;
+  text-align: center;
+  font-size: auto;
+  color: aliceblue;
+  background-color: transparent;
+}
+.bookPreviewRating {
+  background-color: transparent;
+  grid-area: bookPreviewRating;
+  width: 110px;
+  height: auto;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+.bookPreviewRatingImg {
+  grid-area: bookPreviewRating;
+  block-size: 40px;
+  fill: aqua;
+  background-color: transparent;
+}
+.bookPreviewRatingText {
+  grid-area: bookPreviewRating;
+  font-size: auto;
+  position: absolute;
+  top: 2px;
+  left: 50px;
+  color: white;
+  background-color: transparent;
+}
+
+/* .bookInfoDiv {
+} */
+.bookInfo {
+  background-color: rgb(0, 0, 0);
+  width: fit-content;
+  max-height: auto;
+  display: grid;
+  grid-template-rows: 0.3fr 1fr auto auto auto;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "goBackBtn goBackBtn"
+    "bookImg bookImg"
+    "bookTitle bookTitle"
+    "bookAuthor bookPages"
+    "bookDescr bookDescr";
+  position: absolute;
+}
+.goBackDiv {
+  grid-area: goBackBtn;
+}
+.goBackBtnIcon {
+  background-color: transparent;
+  block-size: 50px;
+}
+.goBackBtn {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  border: #000;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}
+.bookInfoImg {
+  margin-top: 63px;
+  margin-bottom: 45px;
+  height: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: border-color 0.5s ease; /* Smooth transition for border color change */
+  animation: borderChange 7s infinite; /* Apply animation */
+  block-size: 400px;
+}
+@keyframes borderChange {
+  0% {
+    border-color: rgb(197, 157, 83);
+    box-shadow: rgb(197, 157, 83) 0 0 40px;
+  }
+  25% {
+    border-color: rgb(255, 255, 255);
+    box-shadow: rgb(255, 255, 255) 0 0 40px;
+  }
+  50% {
+    border-color: rgb(167, 38, 226);
+    box-shadow: rgb(167, 38, 226) 0 0 40px;
+  }
+  75% {
+    border-color: yellow;
+    box-shadow: yellow 0 0 40px;
+  }
+  100% {
+    border-color: rgb(255, 153, 0);
+    box-shadow: rgb(255, 153, 0) 0 0 40px;
+  }
+}
+.bookInfoImg:hover {
+  margin-top: 63px;
+  margin-bottom: 45px;
+  height: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: 4px solid rgb(187, 131, 11);
+  block-size: 400px;
+}
+
+.bookInfoImgDiv {
+  grid-area: bookImg;
+}
+.bookTitleDiv {
+  grid-area: bookTitle;
+  height: fit-content;
+}
+.bookTitle {
+  font-size: auto;
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 40px;
+  color: rgb(247, 201, 0);
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+.bookAuthorDiv {
+  position: relative;
+  background-color: transparent;
+  grid-area: bookAuthor;
+}
+
+.bookAuthor {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: rgb(240, 217, 175);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+}
+.bookPagesDiv {
+  grid-area: bookPages;
+}
+.bookPages {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: rgb(240, 217, 175);
+  font-size: auto;
+  position: relative;
+  left: 60%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+}
+
+.bookDescriptionDiv {
+  grid-area: bookDescr;
+}
+.descriptionTitle {
+  text-align: center;
+  position: relative;
+  padding-top: 35px;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bookDescription {
+  margin-top: 15px;
+  margin-bottom: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+
+.hidden {
+  display: none;
+}
+
+/* html {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/src/images/f0787b7696f2a4c44d687065a2c13453.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+}
+
+.container__home {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("/src/images/f0787b7696f2a4c44d687065a2c13453.jpg");
+}
+
+@media screen and (min-width: 340px) {
+  .homeTitle {
+    background-color: transparent;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: aliceblue;
+    position: absolute;
+    text-align: center;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1px;
+    white-space: nowrap;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+      2px 2px 0 #000;
+    transition-duration: 0.5s;
+  }
+}
+
+@media screen and (max-width: 409px) {
+  .homeTitle {
+    background-color: transparent;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: aliceblue;
+    position: absolute;
+    text-align: center;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    white-space: nowrap;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+      2px 2px 0 #000;
+    transition-duration: 0.5s;
+  }
+}
+@media screen and (min-width: 409px) {
+  .homeTitle {
+    background-color: transparent;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: aliceblue;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+      2px 2px 0 #000;
+    transition-duration: 0.5s;
+  }
+}
+
+.homeBtnStart {
+  border-radius: 20px;
+  block-size: 40px;
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(245, 236, 112);
+  font-size: 26px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(187, 153, 0);
+  padding-bottom: 40px;
+}

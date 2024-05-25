@@ -5,7 +5,6 @@
   "name": "bookish",
   "version": "1.0.0",
   "description": "N/A",
-  "main": "controller.js",
   "devDependencies": {},
   "scripts": {
     "start": "parcel bookish.html",

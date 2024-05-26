@@ -8,7 +8,7 @@
   "description": "N/A",
   "scripts": {
     "start": "parcel bookish.html",
-    "build": "parcel build bookish.html --dist-dir ./dist --public-url /"
+    "build": "parcel build bookish.html"
   },
   "author": "Ernesto Cabral",
   "license": "ISC"

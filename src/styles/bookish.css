@@ -289,17 +289,18 @@
   }
 }
 .bookInfoImg:hover {
-  margin-top: 63px;
+  margin-top: 58px;
   margin-bottom: 45px;
   height: fit-content;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  border: 4px solid rgb(187, 131, 11);
-  block-size: 400px;
+  border: 1px solid transparent;
+  transition: border-color 0.5s ease; /* Smooth transition for border color change */
+  animation: borderChange 7s infinite; /* Apply animation */
+  block-size: 410px;
 }
-
 .bookInfoImgDiv {
   grid-area: bookImg;
 }

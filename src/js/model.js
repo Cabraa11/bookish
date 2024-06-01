@@ -32,6 +32,7 @@ export const loadBooksResults = async (searchQuery) => {
         pages: res.volumeInfo.pageCount,
         image: res.volumeInfo.imageLinks,
         rating: res.volumeInfo.averageRating,
+        description: res.volumeInfo.description,
       };
     });
     // Eliminate results without img & store the rest in results arr
@@ -91,15 +92,10 @@ export const createBookObj = (data) => {
   };
 };
 
-export const loadBook = async (id) => {
+export const loadBook = (bookData) => {
   try {
-    const result = await fetch(
-      `https://www.googleapis.com/books/v1/volumes/${id}`
-    );
-
-    const data = await result.json();
-
-    state.book = createBookObj(data);
+    state.book = bookData;
+    console.log(bookData);
   } catch (err) {
     console.error(err);
   }

@@ -71,7 +71,6 @@ const controlSearchBook = async () => {
 
       const data = await model.loadBooksResults(searchQuery);
 
-      console.log(data);
       // Create preview of resultS
       searchBookView._parentElement.innerHTML = "";
 
@@ -93,13 +92,20 @@ const controlBooks = async () => {
     // Create results from query
 
     const data = await model.loadBooksResults(searchQuery);
-    const id = window.location.hash.slice(1);
-    await model.loadBook(id);
-    bookView._parentElement.innerHTML = "";
 
+    console.log(data);
+
+    const windowId = window.location.hash.slice(1);
+
+    const [bookData] = data.filter((book) => book.id === windowId);
+
+    console.log(bookData.id);
+
+    model.loadBook(bookData);
+    bookView._parentElement.innerHTML = "";
     bookView._renderBook(model.state.book);
     model.setCurrentBookSS(model.state.book);
-    console.log(model.state.book);
+
     bookView._goBackBtn();
   } catch (err) {
     console.error(`${err} 💥💥💥`);

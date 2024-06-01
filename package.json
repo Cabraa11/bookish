@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel bookish.html"
+    "start": "parcel bookish.html",
+    "build": "parcel build bookish.html"
   },
   "keywords": [],
   "author": "",

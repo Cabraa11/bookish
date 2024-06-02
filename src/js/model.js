@@ -23,6 +23,8 @@ export const loadBooksResults = async (searchQuery) => {
     }
     const data = await result.json();
 
+    console.log(data);
+
     const bookResults = data.items.map((res) => {
       return {
         etag: res.etag,

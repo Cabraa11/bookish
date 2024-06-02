@@ -301,6 +301,23 @@
   animation: borderChange 7s infinite; /* Apply animation */
   block-size: 410px;
 }
+.privacyPolicyDiv {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 118.5%;
+}
+.privacyPolicyText {
+  color: brown;
+}
+.PrivacyPolicyTitle {
+  color: aliceblue;
+}
+.PrivacyPolocyText {
+  color: aliceblue;
+}
 .bookInfoImgDiv {
   grid-area: bookImg;
 }

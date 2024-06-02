@@ -318,6 +318,15 @@
 .PrivacyPolocyText {
   color: aliceblue;
 }
+.goToAppPrivacyPolicy {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.goToAppPrivacyPolicyBtn {
+  background-color: aliceblue;
+}
 .bookInfoImgDiv {
   grid-area: bookImg;
 }

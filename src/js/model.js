@@ -19,7 +19,7 @@ export const loadBooksResults = async (searchQuery) => {
     );
 
     if (!result.ok) {
-      throw new Error("Fetching of API was not okay");
+      throw new Error(`Fetching of API was not okay: ${errorDetails}`);
     }
     const data = await result.json();
 
